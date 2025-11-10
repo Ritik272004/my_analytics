@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+vanna
+psycopg2
+python-dotenv
