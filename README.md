@@ -103,4 +103,11 @@ Contains:
 - **Payment**
 - **Document**
 
+## 📌 Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ritik272004/my_analytics.git
+   cd lms
+
 
