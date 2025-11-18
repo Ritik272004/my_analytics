@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Business Analytics Dashboard — Full-Stack + AI Powered
 
-## Getting Started
+A production-grade **Business Analytics Dashboard** built with a modern monorepo architecture.  
+It provides real-time business insights, interactive charts, AI-driven analytics, and a pixel-accurate UI based on the provided Figma design.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Frontend (Next.js)**
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- react-chartjs-2 (Chart.js wrapper)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **Backend (Express + Prisma)**
+- Node.js
+- Express.js (TypeScript)
+- PostgreSQL (Docker container)
+- Prisma ORM
+- REST APIs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **AI Layer**
+- Vanna AI (self-hosted)
+- Groq LLM for SQL generation
+- FastAPI (Python) server
+- RAG-based natural language querying
 
-## Learn More
+### **Deployment**
+- Frontend & Backend → **Vercel**
+- AI Service (Vanna) → **Render / Railway / Fly.io / Docker**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔍 Interactive Analytics Dashboard
+- Pixel-perfect UI based on Figma dashboard  
+- Dynamic data fetched from backend APIs  
+- Key metric cards:
+  - Total Spend (YTD)
+  - Total Invoices Processed
+  - Documents Uploaded
+  - Average Invoice Value
 
-## Deploy on Vercel
+### 📈 Visual Reports & Charts
+- Invoice Volume & Value Trend (Line Chart)
+- Spend by Vendor (Top 10 Bar Chart)
+- Spend by Category (Pie Chart)
+- Cash Outflow Forecast (Bar Chart)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📄 Invoice Table
+- Searchable  
+- Sortable  
+- Scrollable  
+- Displays vendor, date, invoice number, amount, status  
+- Backend endpoint: `/invoices`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🤖 “Chat With Data” — AI Analytics
+
+Ask natural-language questions such as:
+
+- *“What's the total spend in the last 90 days?”*  
+- *“List top 5 vendors by total spend.”*  
+- *“Show overdue invoices as of today.”*
+
+### 🔁 AI Flow
+1. User enters question  
+2. Frontend calls `/chat-with-data` (Express backend)  
+3. Backend sends query to Vanna AI FastAPI server  
+4. Vanna AI uses **Groq** to generate SQL  
+5. SQL runs on PostgreSQL database  
+6. Results + generated SQL returned to UI  
+
+### 💬 UI Displays:
+- AI-generated SQL  
+- Query result table  
+- Streaming AI response  
+
+---
+
+## 🧩 Dataset & Data Modeling
+
+### Input File
+`Analytics_Test_Data.json`  
+Contains:
+- Vendors  
+- Customers  
+- Invoices  
+- Payments  
+- Line Items  
+
+### 📚 Normalized Relational Database (PostgreSQL + Prisma)
+
+#### 📌 Main Tables
+- **Vendor**
+- **Customer**
+- **Invoice**
+- **LineItem**
+- **Payment**
+- **Document**
+
+
